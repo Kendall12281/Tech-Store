@@ -1,0 +1,224 @@
+﻿@inject HttpClient Http
+@using System.Collections.Generic
+@inject IDialogService DialogService
+
+
+@if (motherboards == null)
+{
+        <p><em>Loading...</em></p>
+}
+else
+{
+    <div style="display:none;">
+        @ApplyFilters();
+    </div>
+            <div class="d-flex">
+                <div class="container hide-filters" style="width:30%;">
+                        <h3>Socket</h3>
+                            <MudCheckBox @bind-Checked="@Label_CheckBox_AM4" Label="AM4" Color="Color.Primary"></MudCheckBox>
+                            <MudCheckBox  @bind-Checked="@Label_CheckBox_LGA1200" Label="LGA1200" Color="Color.Primary"></MudCheckBox>
+                        <h3>Max RAM memory</h3>
+                             <MudCheckBox @bind-Checked="@Label_CheckBox_RAM_128" Label="128 GB" Color="Color.Primary"></MudCheckBox>
+                             <MudCheckBox @bind-Checked="@Label_CheckBox_RAM_64" Label="64 GB" Color="Color.Primary"></MudCheckBox>
+                        <h3>RAM slots</h3>
+                             <MudCheckBox @bind-Checked="@Label_CheckBox_slot_4" Label="4" Color="Color.Primary"></MudCheckBox>
+                             <MudCheckBox @bind-Checked="@Label_CheckBox_slot_2" Label="2" Color="Color.Primary"></MudCheckBox>
+                        <h3>Size</h3>
+                             <MudCheckBox @bind-Checked="@Label_CheckBox_ATX" Label="ATX" Color="Color.Primary"></MudCheckBox>
+                             <MudCheckBox @bind-Checked="@Label_CheckBox_Micro_ATX" Label="Micro ATX" Color="Color.Primary"></MudCheckBox>
+                             <MudCheckBox @bind-Checked="@Label_CheckBox_Mini_ATX" Label="Mini ITX" Color="Color.Primary"></MudCheckBox>
+                </div>
+                <div class="container" style="width:95%">
+                    <MudGrid>
+                @foreach (var post in list)
+                {
+                   <MudItem xs="12" sm="12" md="6">
+
+                        <MudCard Tag="post">
+                            <MudCardMedia Image="@post.image" Style="background-size:contain;"/>
+                            <MudCardContent>
+                                <MudText Typo="Typo.h5">@post.name</MudText>
+                                <div style="display:flex">
+                                    <div style="margin-bottom:1rem;margin-top:1rem; display:flex">
+                                        @for (int i = 0; i < post.rating; i++)
+                                        {
+                                            <MudIcon Icon="@Icons.Material.Filled.Star" Style="color:#ffa41c;" />
+                                        }
+
+                                        <MudText Style="margin-left:.5rem;">@post.rating_count reviews</MudText>
+                                    </div>
+                                </div>
+                                <MudText Style="display:flex;" Typo="Typo.body2">
+                                    <span>US$</span>
+                                                    <h1 style="font-weight:bolder; margin-right:.5rem; margin-left:.5rem;">@post.price.ToString().Split(".")[0]</h1>
+                                    @post.price.ToString().Split(".")[1]</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton style="margin-right:1rem;" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Filled.AddShoppingCart">Add to cart</MudButton>
+                                                        <MudButton @onclick="(e) => OpenDialog(post)" Variant="Variant.Outlined" Color="Color.Primary" StartIcon="@Icons.Filled.Assignment">Check specifications</MudButton>
+                             </MudCardActions>
+                        </MudCard>
+                   </MudItem>
+                }
+                     </MudGrid>
+                </div>
+            </div>
+}
+
+
+@code {
+
+    public bool Label_CheckBox_AM4 { get; set; } = false;
+    public bool Label_CheckBox_LGA1200 { get; set; } = false;
+    public bool Label_CheckBox_RAM_128 { get; set; } = false;
+    public bool Label_CheckBox_RAM_64 { get; set; } = false;
+    public bool Label_CheckBox_slot_4 { get; set; } = false;
+    public bool Label_CheckBox_slot_2 { get; set; } = false;
+    public bool Label_CheckBox_ATX { get; set; } = false;
+    public bool Label_CheckBox_Micro_ATX { get; set; } = false;
+    public bool Label_CheckBox_Mini_ATX { get; set; } = false;
+
+    private void OpenDialog(Motherboard motherboard)
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true, };
+        var parameters = new DialogParameters();
+        parameters.Add("name", $"{motherboard.name}");
+        parameters.Add("socket_type", $"{motherboard.socket_type}");
+        parameters.Add("form_factor", $"{motherboard.form_factor}");
+        parameters.Add("memory_max", $"{motherboard.memory_max}");
+        parameters.Add("memory_slots", $"{motherboard.memory_slots}");
+        parameters.Add("colors", $"{motherboard.color}");
+        parameters.Add("image", $"{motherboard.image}");
+        DialogService.Show<Dialog>("", parameters,options);
+    }
+
+
+    //private Motherboard[]? Motherboards;
+    public Motherboard[]? motherboards;
+    public List<Motherboard> list = new List<Motherboard>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        motherboards = await Http.GetFromJsonAsync<Motherboard[]>("data/Navigation/PC_components/motherboard.json");
+    }
+
+
+    public List<Motherboard> ApplyFilters(){
+        list.Clear();
+
+        string socket = "";
+        string factor = "";
+        string max = "";
+        string slots = "";
+
+        /*Socket*/
+        if(Label_CheckBox_LGA1200 == Label_CheckBox_AM4){
+            socket = "";
+        }else{
+            if(Label_CheckBox_AM4){
+                socket = "AM4";
+            }else{
+                socket = "LGA1200";
+            }
+        }
+
+        /*RAM*/
+        if(Label_CheckBox_RAM_128 == Label_CheckBox_RAM_64 ){
+            max = "";
+        }else{
+            if(Label_CheckBox_RAM_128){
+                max = "128 GB";
+            }else{
+                max = "64 GB";
+            }
+        } 
+        /*factor*/
+        if ((Label_CheckBox_ATX == Label_CheckBox_Micro_ATX == Label_CheckBox_Mini_ATX) )
+        {
+            factor = "";
+        }else{
+            if (Label_CheckBox_ATX)
+            {
+                factor = "ATX";
+            }if (Label_CheckBox_Micro_ATX)
+            {
+                factor = "Micro ATX";
+            }if (Label_CheckBox_Mini_ATX)
+            {
+                factor = "Mini ATX";
+            }
+        } 
+        /*Slots*/
+        if(Label_CheckBox_slot_4  == Label_CheckBox_slot_2){
+            slots = "";
+        }else{
+            if(Label_CheckBox_slot_4){
+                slots = "4";
+            }else{
+                slots = "2";
+            }
+        }
+
+
+
+
+
+
+        foreach (var item in motherboards)
+        {
+            if (Label_CheckBox_AM4 == false && Label_CheckBox_LGA1200 == false && Label_CheckBox_RAM_128 == false && Label_CheckBox_RAM_64 == false && Label_CheckBox_slot_4 == false && Label_CheckBox_slot_2 == false && Label_CheckBox_ATX == false && Label_CheckBox_Micro_ATX == false && Label_CheckBox_Mini_ATX == false)
+            {
+                list.Add(item);
+            }else{
+                if(socket == ""){ socket = item.socket_type; }
+                if(max == ""){ max = item.memory_max; }
+                if(slots == ""){ slots = item.memory_slots; }
+                if(factor == ""){ factor = item.form_factor; }
+
+                if(
+                    item.socket_type == socket &&
+                    item.memory_max == max &&
+                    item.form_factor == factor &&
+                    item.memory_slots == slots 
+                ){
+                    list.Add(item);
+                }
+
+            }
+
+        }
+        return list;
+    }
+
+
+    public class Motherboard
+    {
+        public Motherboard(string name, int rating, int rating_count, double price, string socket_type, string form_factor, string memory_max, string memory_slots, string color)
+        {
+            this.name = name;
+            this.rating = rating;
+            this.rating_count = rating_count;
+            this.price = price;
+            this.socket_type = socket_type;
+            this.form_factor = form_factor;
+            this.memory_max = memory_max;
+            this.memory_slots = memory_slots;
+            this.color = color;
+        }
+
+        public string? name { get; set; }
+        public int rating { get; set; }
+        public int rating_count { get; set; }
+        public double price { get; set; }
+        public string? socket_type { get; set; }
+        public string? form_factor { get; set; }
+        public string? memory_max { get; set; }
+        public string? memory_slots { get; set; }
+        public string? color { get; set; }
+        public string? image { get; set; }
+
+
+
+    }
+
+}

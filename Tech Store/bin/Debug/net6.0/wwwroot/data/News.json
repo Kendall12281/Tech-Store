@@ -1,0 +1,27 @@
+[
+  {
+    "Title": "New Iphone 14",
+    "Description": "There are still a couple months to go before the 2022 iPhone 14 models will be ready to launch, but because there are some notable updates in the works for Apple's latest smartphones, we've been hearing rumors about them since well before the iPhone 13 models even came out last year. ",
+    "ImagePath": "images/News/1.jpg"
+  },
+  {
+    "Title": "Check the latest Xbox games",
+    "Description": "Microsoft announced Xbox 360 games’ retirement from Games With Gold in July, saying the program had “reached the limit of our ability to bring Xbox 360 games to the catalogue.” But players who claimed these games may continue to download, keep, and play them, regardless of whether they maintain an active Xbox Live Gold subscription.",
+    "ImagePath": "images/News/2.jpg"
+  },
+  {
+    "Title": "Alienware reinvented his design",
+    "Description": "One of the best gaming laptop deals around right now is on the Alienware x14 gaming laptop. One of the latest models from Alienware, it offers a great set of specs inside the world’s thinnest chassis for a 14-inch gaming laptop. Normally priced at $1,799, it’s down to $1,500 for a limited time only at Dell, saving you $299. You also get six months of The Disney Bundle entirely for free, working out to an $84 saving. Here’s why the Alienware x14 gaming laptop could be the ideal device for you.",
+    "ImagePath": "images/News/3.jpg"
+  },
+  {
+    "Title": "Tesla bobine",
+    "Description": "Nikola Tesla was an ethnic Serbian American Scientist born on 10th July 1856. He is the reason we use Alternating Current and robotics today. He is also credited with the discovery of wireless devices. Know all about him and his secret inventions below.",
+    "ImagePath": "images/News/4.jpg"
+  },
+  {
+    "Title": "How far AI has become",
+    "Description": "When most people think of artificial intelligence (AI), they think of smarty-pants robots that can service our every whim. While real robots may be in the cards, the future of AI will also revolutionize the way we work (in real life and in the metaverse). In fact, AI is already in your workplace: You use AI when you use Google Maps to find your way to an off-site meeting (perhaps in a self-driving car?), or when you use spell-check for a report.",
+    "ImagePath": "images/News/5.jpg"
+  }
+]

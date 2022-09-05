@@ -1,0 +1,53 @@
+﻿@inject HttpClient Http
+
+    @if (publications == null)
+    {
+    <p><em>Loading...</em></p>
+    }
+    else{
+    <MudGrid>
+
+    @foreach (var post in publications)
+    {
+           <MudItem xs="12" sm="6" md="6">
+              <MudCard>
+                    <MudCardMedia Image="@post.ImagePath" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">@post.Title</MudText>
+                    <MudText Typo="Typo.body2">@post.Description</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+                </MudCardActions>
+             </MudCard>
+           </MudItem>
+    }
+    </MudGrid>
+    }
+
+
+
+@code {
+
+
+
+
+    private New[]? publications;
+
+    protected override async Task OnInitializedAsync()
+    {
+        publications = await Http.GetFromJsonAsync<New[]>("data/News.json");
+    }
+
+    public class New
+    {
+        public string? Title { get; set; }
+
+        public string? Description { get; set; }
+
+        public string? ImagePath { get; set; }
+
+    }
+
+}

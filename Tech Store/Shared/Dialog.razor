@@ -1,0 +1,36 @@
+﻿<MudDialog Style="width:90%">
+    <DialogContent>
+        <MudCard Style="border:none; box-shadow:none">
+            <MudCardMedia Image="@image" Height="200" Style="background-size:contain;" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">@name</MudText>
+                <MudList>
+                    <MudListItem>Socket: @socket_type</MudListItem>
+                    <MudListItem>Form: @form_factor</MudListItem>
+                    <MudListItem>Max memory: @memory_max</MudListItem>
+                    <MudListItem>Slots: @memory_slots</MudListItem>
+                    <MudListItem>Colors: @colors</MudListItem>
+                    
+                </MudList>
+            </MudCardContent>
+        </MudCard>
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+    [CascadingParameter] MudDialogInstance? MudDialog { get; set; }
+    [Parameter] public string? name { get; set; }
+    [Parameter] public string? socket_type { get; set; }
+    [Parameter] public string? form_factor { get; set; }
+    [Parameter] public string? memory_max { get; set; }
+    [Parameter] public string? memory_slots { get; set; }
+    [Parameter] public string? colors { get; set; }
+    [Parameter] public string? image { get; set; }
+
+    private void Submit() {
+        MudDialog.Close(DialogResult.Ok(true));
+    }
+}

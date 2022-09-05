@@ -1,0 +1,87 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = Tech_Store
+build_property.RootNamespace = Tech_Store
+build_property.ProjectDir = C:\Users\Kendall\Desktop\C#\Tech-Store\Tech Store\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Kendall\Desktop\C#\Tech-Store\Tech Store
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Pages/Motherboards.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW90aGVyYm9hcmRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/Carousel.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcm91c2VsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/Dialog.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/MotherboardCard.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1vdGhlcmJvYXJkQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/News.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5ld3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/RegisterComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlZ2lzdGVyQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/RegisterDialogComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlZ2lzdGVyRGlhbG9nQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/SignInComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNpZ25JbkNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-whlkq94otj
+
+[C:/Users/Kendall/Desktop/C\#/Tech-Store/Tech Store/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-u1kcv6unzy

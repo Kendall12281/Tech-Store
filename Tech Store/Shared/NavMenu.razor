@@ -1,0 +1,47 @@
+﻿<MudNavMenu>
+    <div class="text-center">
+                <MudIconButton Href="/Login" hidden="@guest" Style=""  Icon="@Icons.Filled.Person" Color="Color.Primary"></MudIconButton>
+            <MudMenu style="margin-top:1rem;">
+        <ActivatorContent>
+                <MudAvatar hidden="@user" Color="Color.Primary" Variant="Variant.Outlined">@letter</MudAvatar>
+        </ActivatorContent>
+            <ChildContent>
+                <MudMenuItem>Sign Out</MudMenuItem>
+            </ChildContent>
+        </MudMenu>
+
+        <MudBadge Content="3" Overlap="true" Class="mx-6 my-4">
+            <MudIconButton Icon="@Icons.Filled.ShoppingCartCheckout" Color="Color.Primary" />
+        </MudBadge>
+    </div>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
+    <MudNavLink Href="/Computers" Match="NavLinkMatch.All">Computers</MudNavLink>
+    <MudNavGroup Title="PC Components " Expanded="false">
+        <MudNavLink Href="/Procesors"  Match="NavLinkMatch.Prefix">Procesors</MudNavLink>
+        <MudNavLink Href="/Motherboards"  Match="NavLinkMatch.Prefix">Motherboard</MudNavLink>
+        <MudNavGroup Title="Ram memory" Expanded="false">
+            <MudNavLink Href="/Laptop"  Match="NavLinkMatch.Prefix">Laptop</MudNavLink>
+            <MudNavLink Href="/PC"  Match="NavLinkMatch.Prefix">PC</MudNavLink>
+        </MudNavGroup>
+        <MudNavGroup Title="Storage" Expanded="false">
+            <MudNavLink Href="/FlashMemory"  Match="NavLinkMatch.Prefix">Flash memory</MudNavLink>
+            <MudNavLink Href="/ExternalSSD"  Match="NavLinkMatch.Prefix">ExternalSSD</MudNavLink>
+            <MudNavLink Href="/SSD"  Match="NavLinkMatch.Prefix">SSD</MudNavLink>
+        </MudNavGroup>
+        <MudNavLink Href="/VideoCard"  Match="NavLinkMatch.Prefix">Video Cards</MudNavLink>
+        <MudNavLink Href="/PowerSupply"  Match="NavLinkMatch.Prefix">Power Supply</MudNavLink>
+        <MudNavGroup Title="Cooling" Expanded="false">
+            <MudNavLink Href="/Fans"  Match="NavLinkMatch.Prefix">Fans</MudNavLink>
+            <MudNavLink Href="/WaterCooling"  Match="NavLinkMatch.Prefix">WaterCooling</MudNavLink>
+            <MudNavLink Href="/LaptopFans"  Match="NavLinkMatch.Prefix">Laptop fans</MudNavLink>
+        </MudNavGroup>
+
+        <MudNavLink Href="/Cases"  Match="NavLinkMatch.Prefix">Cases</MudNavLink>
+    </MudNavGroup>
+</MudNavMenu>
+
+@code{
+    public static bool guest { set; get; } = false;
+    public static bool user { set; get; } = true;
+    public static string? letter { set; get; }
+}
